@@ -16,7 +16,7 @@
 ## Setup/Installation Requirements
 
 * from terminal/command line, git clone this repository onto desktop or other folder
-* navigate into that folder 
+* navigate into currency-exchanger folder
 * npm install
 * touch .env
 * you will need to add an api key to .env file; go to https://www.exchangerate-api.com/ and sign up for a free key 
