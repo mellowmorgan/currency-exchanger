@@ -20,14 +20,12 @@ function populateMenus(response){
   else {
     console.log(response);
     console.log(response.error);
-    $('.showErrors').text(`There was an error: ${response.error}`);
+    $('.showErrors').text(`There was an error: ${response}`);
   }
 }
 
 function getResult(results, currTo, originalAmount){
   let amount = parseFloat(originalAmount);
-  console.log(originalAmount);
-  console.log(amount);
   if (results.conversion_rates) {
     $("#results").text("");
     let totalConverted=0;

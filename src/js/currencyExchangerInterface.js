@@ -3,7 +3,8 @@ export default class CurrencyExchangerInterface{
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${curr}`);
       if (!response.ok) {
-        throw Error(response.statusText);
+        console.log(response);
+        throw Error(response.status);
       }
       return response.json();
     } catch(error) {
