@@ -22,15 +22,16 @@ function populateMenus(response){
 function getResult(results, currTo, amount){
   console.log(results.conversion_rates);
   if (results.conversion_rates) {
-
     $("#results").text("");
     let totalConverted=0;
     Object.keys(results.conversion_rates).forEach((key)=>{
       if(key===currTo){
+        console.log(currTo);
       totalConverted=parseFloat(results.conversion_rates[key])*amount;
+      console.log(totalConverted);
       }
     });
-    $("#results").text(`${totalConverted} ${currTo}`);
+    $(".results").text(`Total: ${totalConverted} ${currTo}`);
   } else {
     $('.showErrors').text(`There was an error: ${results.error}`);
   }
@@ -45,12 +46,11 @@ async function makePopuplateCall(){
 
 async function makeAPICall(currFrom, currTo, amount){
   const results = await CurrencyExchangerInterface.getCurrencies(currFrom);
-  console.log(results.conversion_rates);
   getResult(results, currTo, amount);
 }
-
+makePopuplateCall();
 $(document).ready(()=>{
-  makePopuplateCall();
+
   $("#form-converter").submit((event)=>{
     event.preventDefault();
     const currencyFrom =$("#currencyFrom").val()
