@@ -11,7 +11,6 @@ function populateMenus(response){
       $('#currencyFrom').append(`<option value="${currency}"> ${currency} </option>`);
       if(currency==="CAD"){$('#currencyTo').append(`<option value="${currency}" selected> ${currency} </option>`);}
       else{$('#currencyTo').append(`<option value="${currency}"> ${currency} </option>`);}
-    
       
     });
   } else {
@@ -24,13 +23,16 @@ function getResult(results, currTo, amount){
   if (results.conversion_rates) {
     $("#results").text("");
     let totalConverted=0;
+    let currFound=false;
     Object.keys(results.conversion_rates).forEach((key)=>{
       if(key===currTo){
-        console.log(currTo);
+        currFound=true;
       totalConverted=parseFloat(results.conversion_rates[key])*amount;
-      console.log(totalConverted);
       }
     });
+    if(!currFound){
+      $('.showErrors').text(`There was an error: ${currTo} not found.`);
+    }
     $(".results").text(`Total: ${totalConverted} ${currTo}`);
   } else {
     $('.showErrors').text(`There was an error: ${results.error}`);
