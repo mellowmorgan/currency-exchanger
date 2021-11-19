@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchangerInterface from './js/currencyExchangerInterface.js';
 
+
 function populateMenus(response){
   if (response.conversion_rates) {
     
@@ -18,8 +19,10 @@ function populateMenus(response){
   }
 }
 
-function getResult(results, currTo, amount){
-  console.log(results.conversion_rates);
+function getResult(results, currTo, originalAmount){
+  let amount = parseFloat(originalAmount);
+  console.log(originalAmount);
+  console.log(amount);
   if (results.conversion_rates) {
     $("#results").text("");
     let totalConverted=0;
@@ -33,7 +36,10 @@ function getResult(results, currTo, amount){
     if(!currFound){
       $('.showErrors').text(`There was an error: ${currTo} not found.`);
     }
-    $(".results").text(`Total: ${totalConverted} ${currTo}`);
+    else if(isNaN(totalConverted) || totalConverted<0 || parseFloat(originalAmount)!=originalAmount){
+      $('.showErrors').text(`Please enter a valid number.`);
+    }
+    else{ $(".results").text(`Total: ${totalConverted} ${currTo}`);}
   } else {
     $('.showErrors').text(`There was an error: ${results.error}`);
   }
@@ -51,13 +57,20 @@ async function makeAPICall(currFrom, currTo, amount){
   getResult(results, currTo, amount);
 }
 
+function clearVals(){
+  $(".results").empty();
+  $(".showErrors").empty();
+
+}
+
 $(document).ready(()=>{
   makePopuplateCall();
   $("#form-converter").submit((event)=>{
     event.preventDefault();
     const currencyFrom =$("#currencyFrom").val()
     const currencyTo = $("#currencyTo").val();
-    const amount = parseFloat($("#amount").val());
+    const amount = $("#amount").val();
+    clearVals();
     //put this up top 
     makeAPICall(currencyFrom, currencyTo, amount);
   });
