@@ -16,14 +16,21 @@ function populateMenus(response){
 }
 
 async function makePopuplateCall(){
-  const response = await CurrencyExchangerInterface.getCurrencies();
+  //Make USD defualt request
+  const response = await CurrencyExchangerInterface.getCurrencies("USD");
   populateMenus(response);
 
 }
 
+async funcition makeAPICall();
+
 $(document).ready(()=>{
   makePopuplateCall();
   $("#form-converter").submit((event)=>{
-
+    clearFields();
+    const currFrom =$("#currencyFrom").val()
+   //put uptop const currTo = $("#currencyTo").val()
+    //put this up top const amount = parseFloat($("#amount").val());
+    makeAPICall(currFrom);
   });
 });
