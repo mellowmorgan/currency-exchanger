@@ -1,5 +1,5 @@
-export default class currencyExchangerInterface{
-  static async getCryptos() {
+export default class CurrencyExchangerInterface{
+  static async getCurrencies() {
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
       if (!response.ok) {
