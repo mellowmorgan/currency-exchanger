@@ -18,8 +18,6 @@ function populateMenus(response){
     });
   } 
   else {
-    console.log(response);
-    console.log(response.error);
     $('.showErrors').text(`There was an error: ${response}`);
   }
 }
