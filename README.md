@@ -1,17 +1,18 @@
-# (Application Name)
+# Currency Converter
 
-#### (Brief Description of Application)
+#### A very helpful webpage for converting currency.
 
-#### By (Your Name Here)
+#### By Morgan Waites
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* HTML/CSS/Bootstrap
+* Javascript/JQuery
+* Webpack
+* ExchangeRate-API
 
 ## Description
+Convert whatever currency (well, any currency available in the ExchangeRate-API) you like to from whatever amount!
 
 ## Setup/Installation Requirements
 
@@ -29,5 +30,4 @@
 * No known bugs
 
 ## License
-
-## Contact Information
+[MIT](https://opensource.org/licenses/MIT) Copyright 2021 Morgan Waites.
