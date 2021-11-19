@@ -27,7 +27,7 @@ function getResult(results, currTo, amount){
     Object.keys(results.conversion_rates).forEach((key)=>{
       if(key===currTo){
         currFound=true;
-      totalConverted=parseFloat(results.conversion_rates[key])*amount;
+      totalConverted=(parseFloat(results.conversion_rates[key])*amount).toFixed(2);
       }
     });
     if(!currFound){
@@ -50,9 +50,9 @@ async function makeAPICall(currFrom, currTo, amount){
   const results = await CurrencyExchangerInterface.getCurrencies(currFrom);
   getResult(results, currTo, amount);
 }
-makePopuplateCall();
-$(document).ready(()=>{
 
+$(document).ready(()=>{
+  makePopuplateCall();
   $("#form-converter").submit((event)=>{
     event.preventDefault();
     const currencyFrom =$("#currencyFrom").val()
