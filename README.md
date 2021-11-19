@@ -15,16 +15,17 @@
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* from terminal/command line, git clone this repository onto desktop or other folder
+* navigate into that folder 
+* npm install
+* touch .env
+* you will need to add an api key to .env file; go to https://www.exchangerate-api.com/ and sign up for a free key 
+* open .env file and add api key to a variable like so: API_KEY=2489example3828api22313key
+* npm run start
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* No known bugs
 
 ## License
 
