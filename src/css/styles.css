@@ -1,0 +1,22 @@
+form{
+  margin:3rem;
+  max-width: 30rem;
+  margin:2rem;
+}
+.card{
+  padding:2rem;
+}
+.container{
+  margin-top:1rem;
+}
+.form-control,.form-select{
+  margin-bottom: 0.75rem;
+}
+.label{
+  margin-bottom:.25rem;
+}
+.results, .showErrors{
+  font-weight: bold;
+  font-size:large;
+  margin-left:2rem;
+}

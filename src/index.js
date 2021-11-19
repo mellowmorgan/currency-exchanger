@@ -37,7 +37,7 @@ function getResult(results, currTo, originalAmount){
       $('.showErrors').text(`There was an error: ${currTo} not found.`);
     }
     else if(isNaN(totalConverted) || totalConverted<0 || parseFloat(originalAmount)!=originalAmount){
-      $('.showErrors').text(`Please enter a valid number.`);
+      $('.showErrors').text("Please enter a valid number.");
     }
     else{ $(".results").text(`Total: ${totalConverted} ${currTo}`);}
   } else {

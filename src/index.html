@@ -4,22 +4,24 @@
   <title>Currency Converter</title>
 </head>
 <body>
-  <div class"container-fluid">
+  <div class="container">
+    <div class="card">
     <h1>Currency Converter</h1>
     <form id="form-converter">
         
       <div class="form-group">
-        <label>Amount: </label>
-        <input id="amount" type="float">
-        <label>in:</label>
-        <select id="currencyFrom"></select>
-        <label>Convert to:</label>
-        <select id="currencyTo"></select>
-        <button type="submit" class="btn btn-dark">Convert</button>
+        <label for="amount">Amount: </label>
+        <input class="form-control" id="amount" type="float">
+        <label for="currencyFrom">Covert from:</label>
+        <select class="form-select" id="currencyFrom"></select>
+        <label for="currencyTo">Convert to:</label>
+        <select class="form-select" id="currencyTo"></select>
+        <button type="submit" class="btn btn-primary">Convert</button>
       </div>
     </form>
     <div class="results"></div>
     <div class="showErrors"></div>
+  </div>
   </div>
 </body>
 </html>
