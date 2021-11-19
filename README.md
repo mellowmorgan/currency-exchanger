@@ -19,8 +19,8 @@
 * navigate into currency-exchanger folder
 * npm install
 * touch .env
-* you will need to add an api key to .env file; go to https://www.exchangerate-api.com/ and sign up for a free key 
-* open .env file and add api key to a variable like so: API_KEY=2489example3828api22313key
+* you will need to add an api key to .env file; go to https://www.exchangerate-api.com/ and sign up for a free api key 
+* open .env file and add your api key to variable API_KEY like so: API_KEY=2489example3828api22313key
 * npm run start
 
 ## Known Bugs
