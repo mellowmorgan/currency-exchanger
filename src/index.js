@@ -7,6 +7,7 @@ import CurrencyExchangerInterface from './js/currencyExchangerInterface.js';
 
 function populateMenus(response){
   if (response.conversion_rates) {
+    // sessionStorage.setItem(listForSelect, response);
     Object.keys(response.conversion_rates).forEach(function(currency) {
       $('#currencyFrom').append(`<option value="${currency}"> ${currency} </option>`);
       if(currency==="CAD"){
@@ -50,7 +51,7 @@ async function makePopuplateCall(){
   //Make USD defualt request
   const response = await CurrencyExchangerInterface.getCurrencies("USD");
   populateMenus(response);
-
+  
 }
 
 async function makeAPICall(currFrom, currTo, amount){
@@ -64,20 +65,15 @@ function clearVals(){
 }
 
 //sessionStorage
-myStorage = window.sessionStorage;
-sessionStorage.setItem('key', 'value');
+// myStorage = window.sessionStorage;
 
-// Get saved data from sessionStorage
-let data = sessionStorage.getItem('key');
-
-// Remove saved data from sessionStorage
-sessionStorage.removeItem('key');
-
-// Remove all saved data from sessionStorage
-sessionStorage.clear();
+//sessionStorage.clear();
 
 
 $(document).ready(()=>{
+  //let data = sessionStorage.getItem(listForSelect);
+  // if(data) {populateMenus(data);}
+  // else{makePopuplateCall();}
   makePopuplateCall();
   $("#form-converter").submit((event)=>{
     event.preventDefault();
