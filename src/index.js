@@ -7,7 +7,6 @@ import CurrencyExchangerInterface from './js/currencyExchangerInterface.js';
 
 function populateMenus(response){
   if (response.conversion_rates) {
-    // sessionStorage.setItem(listForSelect, response);
     Object.keys(response.conversion_rates).forEach(function(currency) {
       $('#currencyFrom').append(`<option value="${currency}"> ${currency} </option>`);
       if(currency==="CAD"){
@@ -64,16 +63,9 @@ function clearVals(){
   $(".showErrors").empty();
 }
 
-//sessionStorage
-// myStorage = window.sessionStorage;
-
-//sessionStorage.clear();
 
 
 $(document).ready(()=>{
-  //let data = sessionStorage.getItem(listForSelect);
-  // if(data) {populateMenus(data);}
-  // else{makePopuplateCall();}
   makePopuplateCall();
   $("#form-converter").submit((event)=>{
     event.preventDefault();
